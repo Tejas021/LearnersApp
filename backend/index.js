@@ -23,6 +23,9 @@ mongoose.connect(process.env.DB_URL).then(()=>{
     })
 })
 
+const authRoutes = require("./routes/authRoutes")
+
+app.use("/api/auth",authRoutes)
 
 app.get("/",(req,res)=>{
     res.send("hi")
