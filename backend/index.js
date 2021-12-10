@@ -23,6 +23,10 @@ mongoose.connect(process.env.DB_URL).then(()=>{
     })
 })
 
+// ROUTES
+const subjectRoutes = require("./routes/subjects");
+
+app.use(subjectRoutes);
 
 app.get("/",(req,res)=>{
     res.send("hi")
