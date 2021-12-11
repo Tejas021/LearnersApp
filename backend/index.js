@@ -23,9 +23,17 @@ mongoose.connect(process.env.DB_URL).then(()=>{
     })
 })
 
-const authRoutes = require("./routes/authRoutes")
 
+
+
+
+
+// ROUTES
+const authRoutes = require("./routes/authRoutes")
+const subjectRoutes = require("./routes/subjects");
 app.use("/api/auth",authRoutes)
+app.use(subjectRoutes);
+
 
 app.get("/",(req,res)=>{
     res.send("hi")
