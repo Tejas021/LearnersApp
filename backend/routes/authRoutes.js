@@ -3,7 +3,7 @@ const Teacher = require("../models/Teacher")
 const Student = require("../models/Student")
 const Cryptojs = require("crypto-js")
 const jwt = require("jsonwebtoken")
-
+const {verifyToken}=require("../middleware/verify")
 router.post("/teacher-signin",async(req,res)=>{
     const teacher  = await Teacher.findOne({username:req.body.username});
     if(teacher){
@@ -86,7 +86,7 @@ router.post("/student-signup",async(req,res)=>{
         const newStudent=await student.save()
         const {password,...others}= newStudent._doc;
         const accessToken = jwt.sign({id:newStudent._id,
-            isAdmin:true
+            isAdmin:false
             },process.env.SECRET_KEY,{expiresIn:"3d"})
             res.status(200).send({...others,accessToken})
         res.status(200).send(others)
@@ -98,8 +98,20 @@ router.post("/student-signup",async(req,res)=>{
 
 })
 
-router.post("/verify",async(req,res)=>{
-    
+router.get("/verify",verifyToken,async(req,res)=>{
+    if(req.user.isAdmin===true){
+      
+        const user=await Teacher.findById({_id:req.user.id})
+  
+       
+res.status(200).send(user)
+    }
+    else{
+        const user=await Student.findById({_id:req.user.id})
+           
+res.status(200).send(user)
+    }
+
 })
 
 module.exports=router

@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import "./SignIn.css"
 import {publicRequest} from "../../axios"
+import {useDispatch} from "react-redux"
+import { login } from '../../app/features/userSlice'
 const TeacherSignIn = () => {
 
 const [loginDetails,setLoginDetails]=useState({username:"",password:""})
-    const handleLogin=async(e)=>{
+const dispatch =useDispatch()    
+const handleLogin=async(e)=>{
         e.preventDefault()
         try{
             try{
                 const user=await publicRequest.post("/auth/teacher-signin",loginDetails,{withCredentials:true})
                 console.log(user.data)
                 localStorage.setItem("token",user.data.accessToken)
-           
+                dispatch(login(user.data))
               }
               catch(err){
                 console.log(err)
