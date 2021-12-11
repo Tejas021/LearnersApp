@@ -32,7 +32,7 @@ mongoose.connect(process.env.DB_URL).then(()=>{
 const authRoutes = require("./routes/authRoutes")
 const subjectRoutes = require("./routes/subjects");
 app.use("/api/auth",authRoutes)
-app.use(subjectRoutes);
+app.use("/api/subject",subjectRoutes);
 
 
 app.get("/",(req,res)=>{
