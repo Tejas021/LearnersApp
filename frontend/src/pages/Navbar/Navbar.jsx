@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import LogoutIcon from '@mui/icons-material/Logout';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 
@@ -44,7 +44,7 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
 
-                                <Link className="nav-link active mx-3" to="/events">logout</Link>
+                                <Link className="nav-link active mx-3" to="/events"><ExitToAppIcon /></Link>
                             </li>
 
                         </ul> 
