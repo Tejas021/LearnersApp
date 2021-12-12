@@ -2,8 +2,7 @@
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Home from './pages/Home/Home';
-import TeacherSignIn from './pages/Signin/TeacherSignIn';
-import StudentSignIn from './pages/Signin/StudentSignIn';
+
 
 import {useSelector,useDispatch} from "react-redux"
 import { useEffect } from 'react';
@@ -11,6 +10,7 @@ import { publicRequest } from './axios';
 import { login } from './app/features/userSlice';
 
 import Navbar from './pages/Navbar/Navbar';
+import SignIn from './pages/Signin/SignIn';
 
 
 
@@ -22,6 +22,7 @@ const dispatch = useDispatch()
     const verifyUser=async()=>{
       const TOKEN=localStorage.getItem("token")
       const getuser=await publicRequest.get("/auth/verify",{headers: {"x-auth-token":`Bearer ${TOKEN}`}})
+
       dispatch(login(getuser.data))
     }
     verifyUser()
@@ -30,16 +31,18 @@ const dispatch = useDispatch()
   return (
     <div className="App">
      <Router>
+       <Navbar/>
        <Routes>
 
-         <Route exact path="/" element={user?<Home/>:<StudentSignIn/>}/>
+         <Route exact path="/" element={!user?<SignIn/>
+        :user.isAdmin?<Home name={"Teacher"}/>:<Home name={"Student"}/> 
+        }/>
 
          
       
 
-         <Route path="teacher-signin" element={<TeacherSignIn/>}/>
-         <Route path="student-signin" element={<StudentSignIn/>}/>
-         <Route path="navbar" element={<Navbar/>}/>
+      
+       
        </Routes>
      </Router>
     </div>

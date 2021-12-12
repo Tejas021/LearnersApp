@@ -3,7 +3,7 @@ import "./SignIn.css"
 import {publicRequest} from "../../axios"
 import {useDispatch} from "react-redux"
 import { login } from '../../app/features/userSlice'
-const TeacherSignIn = () => {
+const TeacherSignIn = ({isTeacher,setIsTEacher}) => {
 
 const [loginDetails,setLoginDetails]=useState({username:"",password:""})
 const dispatch =useDispatch()    
@@ -26,7 +26,7 @@ const handleLogin=async(e)=>{
 
 
     return (
-        <div className="signin__page">
+     
             
             <div className="signin__body">
             <h1>Teacher Sign In</h1>
@@ -35,10 +35,10 @@ const handleLogin=async(e)=>{
                 <input placeholder='password' type="password" onChange={(e)=>setLoginDetails({...loginDetails,password:e.target.value})} value={loginDetails.password}/>
                 <button>SIGN IN</button>
                 </form>
-
+                <p onClick={()=>setIsTEacher(!isTeacher)} style={{marginTop:"10px"}} >Sign In as a  <span style={{color:"white",cursor:"pointer"}}>Student</span></p>
             </div>
            
-        </div>
+    
     )
 }
 

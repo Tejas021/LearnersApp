@@ -32,7 +32,7 @@ router.post("/student-signin",async(req,res)=>{
         if(req.body.password===hashedPassword){
             const {password,...others} = student._doc;
             const accessToken = jwt.sign({id:student._id,
-                isAdmin:true
+                isAdmin:false
                 },process.env.SECRET_KEY,{expiresIn:"3d"})
             res.status(200).send({...others,accessToken})
         }
@@ -55,7 +55,7 @@ router.post("/teacher-signup",async(req,res)=>{
         password:Cryptojs.AES.encrypt(req.body.password,process.env.PASS_KEY).toString()})
           
     try{
-        console.log("cllaeds")
+      
         const newTeacher=await teacher.save()
         const {password,...others}= newTeacher._doc;
 
@@ -67,7 +67,7 @@ router.post("/teacher-signup",async(req,res)=>{
         
     }
     catch(err){
-        console.log("er",err)
+  
         res.status(500).send(err)
     }
 
@@ -92,23 +92,27 @@ router.post("/student-signup",async(req,res)=>{
         res.status(200).send(others)
     }
     catch(err){
-        console.log(err)
+
         res.status(500).send(err)
     }
 
 })
 
+
+
+
 router.get("/verify",verifyToken,async(req,res)=>{
+
     if(req.user.isAdmin===true){
-      
+   
         const user=await Teacher.findById({_id:req.user.id})
-  
+
        
 res.status(200).send(user)
     }
     else{
         const user=await Student.findById({_id:req.user.id})
-           
+       
 res.status(200).send(user)
     }
 
