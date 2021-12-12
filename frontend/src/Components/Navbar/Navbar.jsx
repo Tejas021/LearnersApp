@@ -10,8 +10,8 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg bg-dark navbar-dark bg-trans fixed-top" >
                 <div className="container">
                     <Link className="navbar-brand" to="/"><h3>
-                        <span className="text-warning">Yata</span>
-                        <span className="text-light">gram</span>
+                        <span className="text-success">Stud</span>
+                        <span className="text-light">Eval</span>
                     </h3></Link>
                     <i type="button" className="me-auto fa fa-fw fa-search " data-bs-toggle="modal" data-bs-target="#exampleModal" ></i>
                     <button
