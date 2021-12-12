@@ -17,6 +17,7 @@ const dispatch = useDispatch()
     const verifyUser=async()=>{
       const TOKEN=localStorage.getItem("token")
       const getuser=await publicRequest.get("/auth/verify",{headers: {"x-auth-token":`Bearer ${TOKEN}`}})
+     console.log("called",getuser.data)
       dispatch(login(getuser.data))
     }
     verifyUser()
