@@ -7,7 +7,8 @@ const TeacherSchema = new Schema({
     username:{required:true,unique:true,type:String}
     ,email:{required:true,unique:true,type:String}
     ,password:{required:true,type:String}
-    ,department:{required:true,type:String}
+    ,department:{required:true,type:String},
+    isAdmin:{type:Boolean,default:true}
 },{timestamps:true})
 
 const Teacher = mongoose.model("teacher",TeacherSchema)
