@@ -9,8 +9,9 @@ import { useEffect } from 'react';
 import { publicRequest } from './axios';
 import { login } from './app/features/userSlice';
 
-import Navbar from './pages/Navbar/Navbar';
+import Navbar from './Components/Navbar/Navbar';
 import SignIn from './pages/Signin/SignIn';
+import Table from "./Components/tables/Table"
 
 
 
@@ -38,10 +39,8 @@ const dispatch = useDispatch()
         :user.isAdmin?<Home name={"Teacher"}/>:<Home name={"Student"}/> 
         }/>
 
-         
-      
+        {/* <Route path="/table" element={<Table />} /> */}
 
-      
        
        </Routes>
      </Router>
