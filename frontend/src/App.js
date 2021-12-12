@@ -4,10 +4,15 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Home from './pages/Home/Home';
 import TeacherSignIn from './pages/Signin/TeacherSignIn';
 import StudentSignIn from './pages/Signin/StudentSignIn';
+
 import {useSelector,useDispatch} from "react-redux"
 import { useEffect } from 'react';
 import { publicRequest } from './axios';
 import { login } from './app/features/userSlice';
+
+import Navbar from './pages/Navbar/Navbar';
+
+
 
 function App() {
   
@@ -27,9 +32,15 @@ const dispatch = useDispatch()
     <div className="App">
      <Router>
        <Routes>
+
          <Route exact path="/" element={user?<Home/>:<StudentSignIn/>}/>
+
+         
+      
+
          <Route path="teacher-signin" element={<TeacherSignIn/>}/>
          <Route path="student-signin" element={<StudentSignIn/>}/>
+         <Route path="navbar" element={<Navbar/>}/>
        </Routes>
      </Router>
     </div>
