@@ -12,6 +12,7 @@ import { login } from './app/features/userSlice';
 import Navbar from './Components/Navbar/Navbar';
 import SignIn from './pages/Signin/SignIn';
 import Table from "./Components/tables/Table"
+import SubjectEval from './pages/Teacher/SubjectEval';
 
 
 
@@ -39,7 +40,7 @@ const dispatch = useDispatch()
         :user.isAdmin?<Home name={"Teacher"}/>:<Home name={"Student"}/> 
         }/>
 
-        {/* <Route path="/table" element={<Table />} /> */}
+        <Route path="/teacher" element={<SubjectEval/>} />
 
        
        </Routes>

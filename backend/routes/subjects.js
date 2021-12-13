@@ -41,4 +41,15 @@ router.delete('/deleteSubject/:id', async (req, res) => {
     
 })
 
+// FETCH SUBJECTS
+
+router.get("/fetchSubject",async (req,res)=>{
+    try{
+        const data =  await Subjects.find({name:req.query.subject})
+        res.status(200).send(data)
+    } catch (err){
+        res.status(500).send(err)
+    }
+})
+
 module.exports = router
