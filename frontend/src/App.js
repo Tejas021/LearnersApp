@@ -1,5 +1,5 @@
 
-import './App.css';
+
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Home from './pages/Home/Home';
 
@@ -13,6 +13,7 @@ import Navbar from './Components/Navbar/Navbar';
 import SignIn from './pages/Signin/SignIn';
 import Table from "./Components/tables/Table"
 import SubjectEval from './pages/Teacher/SubjectEval';
+import TeacherHome from "../src/pages/Teacher/TeacherHome";
 
 
 
@@ -40,7 +41,7 @@ const dispatch = useDispatch()
         :user.isAdmin?<Home name={"Teacher"}/>:<Home name={"Student"}/> 
         }/>
 
-        <Route path="/teacher" element={<SubjectEval/>} />
+        <Route path="/teacher" element={<TeacherHome />} />
 
        
        </Routes>

@@ -5,6 +5,10 @@ import { publicRequest } from "../../axios"
 
 const SubjectEval = () => {
     const [result, setResult] = useState(null)
+    const [segregate,setSegregate] = useState(null)
+    const percentage = (result) =>{
+        return ((result.IA1 + result.IA2 + result.viva + result.semester)/140)*100;
+    }
 
     useEffect(() => {
         const fetchResult = async () => {
@@ -19,7 +23,7 @@ const SubjectEval = () => {
         }
         fetchResult();
     }, [])
-    console.log(result)
+    
     return (
         <div>
             <div style={{ marginTop: "5%" }} className="table-responsive">
