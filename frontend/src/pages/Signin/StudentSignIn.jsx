@@ -35,7 +35,7 @@ const handleLogin=async(e)=>{
                 <input placeholder='password' type="password" onChange={(e)=>setLoginDetails({...loginDetails,password:e.target.value})} value={loginDetails.password}/>
                 <button>SIGN IN</button>
                 </form>
-                <p onClick={()=>setIsTEacher(!isTeacher)} style={{marginTop:"10px"}}>Sign In as a <span style={{color:"white",cursor:"pointer"}}>Teacher</span></p>
+                <p onClick={()=>setIsTEacher(!isTeacher)} style={{marginTop:"20px"}}>Sign In as a <span style={{color:"white",cursor:"pointer"}}>Teacher</span></p>
             </div>
 
     )

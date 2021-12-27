@@ -5,6 +5,8 @@ import SubjectEval from './SubjectEval';
 import Table from "../../Components/tables/Table"
 import Segregate from '../../Components/tables/Segregate';
 import branches from "../../Components/subjects"
+import PieChart from "../../Components/Graphs/PieChart"
+import BarGraph from '../../Components/Graphs/BarGraph';
 
 const TeacherHome = () => {
     const [query, setQuery] = useState({sem:"",subject:"",branch:""})
@@ -12,7 +14,7 @@ const TeacherHome = () => {
     const [subject,setSubject]=useState(null)
     const [branch, setBranch] = useState(null)
     return (
-        <div>
+        <div className='container'>
             <div className='d-flex flex-row '>
 
             <div className="dropdown">
@@ -60,8 +62,8 @@ const TeacherHome = () => {
             </div>
            
             <Table/>
-            
-
+            <PieChart/>
+<BarGraph/>
         </div>
     )
 }
