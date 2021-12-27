@@ -30,7 +30,7 @@ const SubjectEval = () => {
                 <table className="table   table-info table-hover table-bordered" >
                     <thead>
                         <tr>
-                            <th scope="col" >{result[0]?.name}</th>
+                            <th scope="col" >TEjas</th>
                             <th scope="col" style={{ textAlign: "center" }}>IA-1</th>
                             <th scope="col" style={{ textAlign: "center" }}>IA-2</th>
                             <th scope="col" style={{ textAlign: "center" }}>Viva</th>
