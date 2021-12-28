@@ -14,11 +14,14 @@ const TeacherHome = () => {
     const [subject,setSubject]=useState(null)
     const [branch, setBranch] = useState(null)
     return (
-        <div className='container'>
-            <div className='d-flex flex-row '>
+        <div className='container-fluid'>
+             <div className='text-light my-2'>
+                Select Sem and Branch
+            </div>
+            <div className='d-flex flex-row  py-2'>
 
             <div className="dropdown">
-                    <button className="btn  dropdown-toggle ms-4 " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className="btn  dropdown-toggle  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                        {branch?branch.title:"BRanch"}
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -57,9 +60,7 @@ const TeacherHome = () => {
                 
             </div>
 
-            <div>
-                select Sem and Branch
-            </div>
+           
            
             <Table/>
             <PieChart/>

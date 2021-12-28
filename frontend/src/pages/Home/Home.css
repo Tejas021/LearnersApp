@@ -1,0 +1,10 @@
+.home__header{
+display: flex;
+}
+
+.right{
+    flex:1;
+}
+.left{
+    flex:3;
+}
